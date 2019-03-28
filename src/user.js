@@ -234,7 +234,9 @@ module.exports = {
         includeMembership: ['all'],
         includeDeleted: false,
         // 2019-03-28, added attributes from opts
-        attributes: (opts.attributes) ? opts.attributes : undefined
+        attributes: (opts && opts.attributes) ? opts.attributes : undefined
+		// 2019-04-03, added entryParser from opts
+        entryParser: (opts && opts.entryParser) ? opts.entryParser : undefined
       };
       this.ad.find(params, (err, results) => {
         if (err) {
