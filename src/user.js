@@ -232,7 +232,9 @@ module.exports = {
       const params = {
         filter,
         includeMembership: ['all'],
-        includeDeleted: false
+        includeDeleted: false,
+        // 2019-03-28, added attributes from opts
+        attributes: (opts.attributes) ? opts.attributes : undefined
       };
       this.ad.find(params, (err, results) => {
         if (err) {
